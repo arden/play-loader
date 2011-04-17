@@ -1,6 +1,7 @@
 让Play!自动加载自己自定义的目录做为java的类加载路径，如：src目录等，目前支持play 1.2版 本。
 
 使用方法：
+一：修改java源代码路径
 1）cd <your dir>
 2）play new <your project>
 3）mkdir src (假设拿src目录来存放java源文件)
@@ -8,5 +9,12 @@
 4）cd modules
 5）git clone https://arden@github.com/arden/play-loader.git
 6）修改conf/application.conf
-   增加：loader.path=src
+   增加：javasource.path=src
 7）启动项目 play run
+
+二：修改视图模版路径
+1）cd <your project>
+2）cd app
+3）mv views templates (假设把模版路径改为templates)
+4）修改conf/application.conf，增加template.path=app/templates
+5）启动项目,play run
