@@ -11,11 +11,10 @@ import play.vfs.VirtualFile;
  * @author arden
  */
 public class LoaderPlugin extends PlayPlugin {
-
     public void onLoad() {
         String pattern = (String) Play.configuration.get("loader.path");
+        VirtualFile appRoot = VirtualFile.open(Play.applicationPath);
         if (pattern != null) {
-			VirtualFile appRoot = VirtualFile.open(Play.applicationPath);
 			String[] paths = pattern.split(",");
             if (paths != null) {
                 for (int i = 0; i < paths.length; i++) {
@@ -24,6 +23,11 @@ public class LoaderPlugin extends PlayPlugin {
             }
         } else {
             Logger.info("Missing configuration 'loader.path', loader will be ignored!");
+        }
+
+        pattern = (String) Play.configuration.get("template.path");
+        if (pattern != null) {
+            Play.templatesPath.add(appRoot.child(pattern));
         }
     }
 }
