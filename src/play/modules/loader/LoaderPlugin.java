@@ -22,10 +22,10 @@ public class LoaderPlugin extends PlayPlugin {
                 }
             }
         } else {
-            Logger.info("Missing configuration 'loader.path', loader will be ignored!");
+            Logger.info("Missing configuration 'source.paths', loader will be ignored!");
         }
 
-        pattern = (String) Play.configuration.get("template.path");
+        pattern = (String) Play.configuration.get("template.paths");
         if (pattern != null) {
             Play.templatesPath.add(appRoot.child(pattern));
         }
