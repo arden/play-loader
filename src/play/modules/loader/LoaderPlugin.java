@@ -12,7 +12,7 @@ import play.vfs.VirtualFile;
  */
 public class LoaderPlugin extends PlayPlugin {
     public void onLoad() {
-        String pattern = (String) Play.configuration.get("javasource.path");
+        String pattern = (String) Play.configuration.get("source.paths");
         VirtualFile appRoot = VirtualFile.open(Play.applicationPath);
         if (pattern != null) {
 			String[] paths = pattern.split(",");
