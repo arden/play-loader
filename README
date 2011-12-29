@@ -9,12 +9,12 @@
 4）cd modules
 5）git clone https://arden@github.com/arden/play-loader.git
 6）修改conf/application.conf
-   增加：source.paths=src/main/java
+   增加：javasource.path=src
 7）启动项目 play run
 
 二：修改视图模版路径
 1）cd <your project>
 2）cd app
 3）mv views templates (假设把模版路径改为templates)
-4）修改conf/application.conf，增加template.paths=app/templates
+4）修改conf/application.conf，增加template.path=app/templates
 5）启动项目,play run
